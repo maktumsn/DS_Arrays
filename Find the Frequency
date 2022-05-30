@@ -1,0 +1,87 @@
+Find the Frequency 
+Easy Accuracy: 59.34% Submissions: 31979 Points: 2
+Given a vector of N positive integers and an integer X. The task is to find the frequency of X in vector.
+
+ 
+
+Example 1:
+
+Input:
+N = 5
+vector = {1, 1, 1, 1, 1}
+X = 1
+Output: 
+5
+Explanation: Frequency of 1 is 5.
+Your Task:
+Your task is to complete the function findFrequency() which should count the frequency of X and return it.
+
+
+soln----
+//Initial Template for Java
+
+import java.io.*;
+import java.util.*;
+
+class FastReader{ 
+    BufferedReader br; 
+    StringTokenizer st; 
+
+    public FastReader(){ 
+        br = new BufferedReader(new InputStreamReader(System.in)); 
+    } 
+
+    String next(){ 
+        while (st == null || !st.hasMoreElements()){ 
+            try{ st = new StringTokenizer(br.readLine()); } catch (IOException  e){ e.printStackTrace(); } 
+        } 
+        return st.nextToken(); 
+    } 
+
+    String nextLine(){ 
+        String str = ""; 
+        try{ str = br.readLine(); } catch (IOException e) { e.printStackTrace(); } 
+        return str; 
+    } 
+    
+    Integer nextInt(){
+        return Integer.parseInt(next());
+    }
+} 
+    
+class GFG {
+    public static void main(String args[]) throws IOException {
+        FastReader sc = new FastReader();
+        PrintWriter out = new PrintWriter(System.out);
+        int t = sc.nextInt();
+        while (t-- > 0) {
+            Solution ob = new Solution();
+            int N = sc.nextInt(), A[] = new int[N];
+    	    for(int i = 0;i<N;i++){
+    	        A[i] = sc.nextInt();
+    	    }
+    	    
+    	    // element whose frequency to be find
+    	    int x = sc.nextInt();
+    	    out.println(ob.findFrequency(A, x));
+        }
+        out.flush();
+    }
+}
+// } Driver Code Ends
+
+
+//User function Template for Java
+
+class Solution{
+    int findFrequency(int A[], int x){
+        int count=0;
+        for (int i=0;i<A.length;i++)
+        {
+            if (A[i]==x)
+            count++;
+        }
+        return count;
+        
+    }
+}
